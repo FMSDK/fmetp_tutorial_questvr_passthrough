@@ -9,7 +9,8 @@ This example project demonstrates the low latency passthrough live stream (In-Ga
 https://youtu.be/vJNRrGsxT-k
 
 - Tested with Unity 2022.3.58f1 and 6000.0.61f1
-- Asset Store link: https://assetstore.unity.com/packages/slug/307623
+<!-- - Asset Store link: https://assetstore.unity.com/packages/slug/307623 -->
+- Download link(After March 31, 2026): https://frozenmist.com/docs/Products/FMETP-STREAM/
 - Support: thelghome@gmail.com
 
  ![GIF 2](./Media/fmetp_stream_oculus_passthrough_optimised.gif)
