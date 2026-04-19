@@ -60,7 +60,7 @@ namespace PassthroughCameraSamples.CameraToWorld
 
         private void Update()
         {
-            if (OVRInput.GetDown(OVRInput.Button.One))
+            if (InputManager.IsButtonADownOrPinchStarted())
             {
                 m_snapshotTaken = !m_snapshotTaken;
                 if (m_snapshotTaken)
@@ -69,7 +69,6 @@ namespace PassthroughCameraSamples.CameraToWorld
                     m_cameraCanvas.MakeCameraSnapshot();
                     m_snapshotHeadPose = m_centerEyeAnchor.transform.ToOVRPose();
                     UpdateMarkerPoses();
-                    TranslateMarkersForDebug();
                     m_cameraAccess.enabled = false;
                 }
                 else
@@ -81,7 +80,7 @@ namespace PassthroughCameraSamples.CameraToWorld
                 UpdateRaysRendering();
             }
 
-            if (OVRInput.GetDown(OVRInput.Button.Two))
+            if (InputManager.IsButtonBDownOrMiddleFingerPinchStarted())
             {
                 m_isDebugOn = !m_isDebugOn;
                 Debug.Log($"PCA: SpatialSnapshotManager: DEBUG mode is {(m_isDebugOn ? "ON" : "OFF")}");
@@ -91,7 +90,6 @@ namespace PassthroughCameraSamples.CameraToWorld
             if (!m_snapshotTaken)
             {
                 UpdateMarkerPoses();
-                TranslateMarkersForDebug();
             }
         }
 
@@ -166,11 +164,8 @@ namespace PassthroughCameraSamples.CameraToWorld
                 var label = item.rayGo.GetComponentInChildren<Text>();
                 label.text = $"({item.u:F0}, {item.v:F0})";
             }
-        }
 
-        /// <summary>Move the updated markers forward to better see them</summary>
-        private void TranslateMarkersForDebug()
-        {
+            // Move the updated markers forward to better see them
             m_headMarker.SetActive(m_isDebugOn || m_snapshotTaken);
             m_cameraMarker.SetActive(m_isDebugOn || m_snapshotTaken);
             var gameObjects = new[]

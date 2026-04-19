@@ -194,6 +194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79b7777c2e8e419c98791f75a37daf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_cameraAccess: {fileID: 0}
+  m_webCamTextureManager: {fileID: 0}
   m_debugText: {fileID: 331063821990452063}
   m_renderer: {fileID: 0}

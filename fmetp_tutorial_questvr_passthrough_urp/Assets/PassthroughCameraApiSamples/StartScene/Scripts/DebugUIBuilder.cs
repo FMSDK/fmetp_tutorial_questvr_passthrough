@@ -80,9 +80,7 @@ namespace PassthroughCameraSamples.StartScene
         private OVRCameraRig m_rig;
         private Dictionary<string, ToggleGroup> m_radioGroups = new();
         private LaserPointer m_lp;
-        private LineRenderer m_lr;
 
-        public LaserPointer.LaserBeamBehaviorEnum LaserBeamBehavior = LaserPointer.LaserBeamBehaviorEnum.OnWhenHitTarget;
         public bool IsHorizontal = false;
         public bool UsePanelCentricRelayout = false;
 
@@ -123,8 +121,6 @@ namespace PassthroughCameraSamples.StartScene
                             "Add one to your scene, or assign the UIHelpers prefab to the DebugUIBuilder in the inspector.");
                 return;
             }
-
-            m_lp.LaserBeamBehavior = LaserBeamBehavior;
 
             if (!m_toEnable.Contains(m_lp.gameObject))
             {

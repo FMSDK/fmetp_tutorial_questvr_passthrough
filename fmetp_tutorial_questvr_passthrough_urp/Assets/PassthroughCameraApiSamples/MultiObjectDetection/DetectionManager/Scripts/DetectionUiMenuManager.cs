@@ -11,15 +11,11 @@ namespace PassthroughCameraSamples.MultiObjectDetection
     [MetaCodeSample("PassthroughCameraApiSamples-MultiObjectDetection")]
     public class DetectionUiMenuManager : MonoBehaviour
     {
-        [Header("Ui buttons")]
-        [SerializeField] private OVRInput.RawButton m_actionButton = OVRInput.RawButton.A;
-
         [Header("Ui elements ref.")]
         [SerializeField] private GameObject m_loadingPanel;
         [SerializeField] private GameObject m_initialPanel;
         [SerializeField] private GameObject m_noPermissionPanel;
         [SerializeField] private Text m_labelInformation;
-        [SerializeField] private AudioSource m_buttonSound;
 
         public bool IsInputActive { get; set; } = false;
 
@@ -39,14 +35,6 @@ namespace PassthroughCameraSamples.MultiObjectDetection
         {
             m_initialPanel.SetActive(false);
             m_noPermissionPanel.SetActive(false);
-
-            // Wait until Sentis model is loaded
-            m_loadingPanel.SetActive(true);
-            var sentisInference = FindFirstObjectByType<SentisInferenceRunManager>();
-            while (!sentisInference.IsModelLoaded)
-            {
-                yield return null;
-            }
             m_loadingPanel.SetActive(false);
 
             // Wait for permissions
@@ -92,9 +80,8 @@ namespace PassthroughCameraSamples.MultiObjectDetection
 
         private void InitialMenuUpdate()
         {
-            if (OVRInput.GetUp(m_actionButton))
+            if (InputManager.IsButtonADownOrPinchStarted())
             {
-                m_buttonSound?.Play();
                 OnPauseMenu(false);
             }
         }

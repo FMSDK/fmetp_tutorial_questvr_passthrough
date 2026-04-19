@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b528a96f9444f3a847f3c24c847c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fmnetwork: {fileID: 0}
+  fmnetwork: {fileID: 334881048}
   cameraInfo:
     WebcamFOV_h: 72.80092
     WebcamFOV_v: 57.88137
@@ -776,7 +776,7 @@ MonoBehaviour:
     ViewScaleX: 0.5143569
     ViewScaleY: 0.5129565
     ViewOffsetX: 0
-    ViewOffsetY: -0.1
+    ViewOffsetY: -0.11
     MRScaleX: 1
     MRScaleY: 1
     MROffsetX: 0
